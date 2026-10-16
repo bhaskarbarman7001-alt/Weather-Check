@@ -1,0 +1,412 @@
+/* ========== Global Styles ========== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Base body styles with responsive design in mind */
+body {
+  background-image: url('/static/images/bg3.jpg');
+  width: 100%;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  overflow-x: hidden;
+  backdrop-filter: blur(5px);
+}
+
+/* ========== Header / Navbar ========== */
+nav {
+  position: relative;
+  width: 800px;
+  height: 50px;
+  background-color: #222;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+a.nav-link {
+  position: relative;
+  display: inline-block;
+  height: 90%;
+  line-height: 50px;
+  font-size: 1em;
+  font-weight: 500;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 0 20px;
+  /* base stacking context for the link; keep at 0 so child span can be placed behind */
+  z-index: 0;
+}
+
+a.nav-link span{
+  position: absolute;
+  top: 0;
+  /* center the decorative span inside the anchor */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 95px;
+  height: 100%;
+  background: linear-gradient(45deg, #4f1919, #ff3333);
+  border-radius: 8px;
+  /* place the decorative span behind the link text */
+  z-index: -1;
+  pointer-events: none; /* don't block clicks */
+  opacity: 0; /* hidden by default */
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+/* show span only for active link or on hover */
+a.nav-link.active span,
+a.nav-link:hover span {
+  opacity: 1;
+  transform: translateX(-50%) scale(1.02);
+}
+
+.logout-btn {
+  background-color: transparent;
+  color: #ffffff;
+  border: 2px solid #ff3333;
+  padding: 8px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  margin-left: 20px;
+}
+
+.logout-btn:hover {
+  background-color: #ff3333;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 2px 8px rgba(255, 51, 51, 0.4);
+}
+
+
+.main-container {
+ width: 800px;
+}
+
+
+/* ========== Main Content ========== */
+.container {
+  width: 100%;
+  min-height: 750px;
+  z-index: 1;
+  background: rgb(210, 210, 210); 
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 1rem;
+}
+
+.card {
+  background: white;
+  padding: 20px;
+  margin: 15px 0;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 700px;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+
+.logs-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.logs-table th,
+.logs-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.logs-table th {
+  background-color: #157D9A;
+  color: white;
+  font-weight: bold;
+}
+
+.logs-table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.logs-table tbody tr:hover {
+  background-color: #f0f0f0;
+}
+
+h1 {
+  color: #000101;
+  font-size: 3em;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeInSlideIn 2s ease-out forwards;
+  opacity: 0; /* Start with opacity 0 to ensure fade-in effect */
+  transform: translateX(-100px); /* Start off-screen to the left */
+}
+
+@keyframes fadeInSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-100px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+h2 {
+  color: #424242;
+  margin-bottom: 10px;
+  text-decoration: underline;
+  display: flex;
+  justify-content: center;
+}
+
+h3{
+  color: #1976d2;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  text-decoration: underline;
+}
+p {
+  font-size: 1.1rem;
+  color: #000000;
+  text-align: center;
+}
+
+
+/* ========== Footer ========== */
+footer {
+  margin-top: auto;
+  padding: 15px;
+  color: #666;
+  text-align: center;
+}
+
+/* ========== Buttons ========== */
+button {
+  background-color: #1976d2;
+  color: white;
+  padding: 5px 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: 0.3s;
+  height: auto;
+}
+
+button:hover {
+  background-color: #0d47a1;
+}
+
+input{
+  padding: 8px;
+  border: 2px solid #000000;
+  border-radius: 5px;
+  width:40%;
+  margin-right: 10px;
+
+}
+
+a.box{
+  display:inline-block;
+  padding:10px 20px;
+  border:2px solid #3498db;
+  border-radius: 6px;
+  color: #3498db;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+a.box:hover{
+  background-color: #3498db;
+  color:#ffffff;
+  box-shadow: 0 0 10px #3498db;
+}
+
+/* ========== Responsive Design ========== */
+/* Mobile Styles */
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+
+  .main-container {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  nav {
+    width: 100%;
+    height: auto;
+    padding: 10px;
+  }
+
+  nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .container {
+    padding: 15px;
+    height: auto;
+    min-height: 600px;
+    margin-top: 1rem;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    text-decoration: underline;
+  }
+
+  input {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+}
+
+/* Tablet Styles */
+@media (min-width: 601px) and (max-width: 1024px) {
+  body {
+    padding: 2rem;
+  }
+
+  .main-container {
+    width: 90%;
+    max-width: 800px;
+  }
+
+  nav {
+    width: 100%;
+  }
+
+  .container {
+    height: auto;
+    min-height: 700px;
+  }
+}
+
+/* Landscape Mode */
+@media (max-height: 500px) and (orientation: landscape) {
+  body {
+    padding: 1rem;
+  }
+
+  .container {
+    height: auto;
+    min-height: 400px;
+    padding: 15px;
+  }
+
+  .main-container {
+    margin-top: 1rem;
+  }
+
+  h1 {
+    font-size: 2em;
+  }
+}
+
+/* Auth container */
+.auth-container {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.auth-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  backdrop-filter: blur(10px);
+}
+
+.auth-card {
+  background: rgba(255, 255, 255, 0.95);
+  width: 360px;
+  padding: 32px;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+  color: #222;
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  animation: slideUp 0.5s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.auth-card h2 { margin: 0 0 12px; font-size: 1.4rem; text-align:center; }
+
+.form-switch { display:flex; gap:8px; justify-content:center; margin-bottom:10px; }
+.switch-btn {
+  padding:6px 12px; border:none; background:transparent; cursor:pointer; font-weight:600;
+}
+.switch-btn.active { color:#fff; background:#157D9A; border-radius:8px; box-shadow: 0 3px 8px rgba(21,125,154,0.25); }
+
+.form-row { margin-bottom:10px; display:flex; flex-direction:column; gap:6px; }
+.form-row label { font-size:0.85rem; color:#334; }
+.form-row input {
+  padding: 10px; width: 100%; border-radius:10px; border:1px solid #ddd; outline:none;
+}
+.btn { padding:10px; border-radius:8px; border:none; cursor:pointer; width:100%; }
+.primary { background:#157D9A; color:white; font-weight:700; }
+.social { background:#157D9A; margin-top:6px; }
+
+.divider { text-align:center; margin:8px 0; color:#666; font-size:0.9rem; }
+
+.hidden { display:none; }
+
+.message { color: red; min-height: 1.2em; margin-top:8px; text-align:center; }
+.extra { text-align:center; margin-top:8px; }
+.extra a { color:#157D9A; text-decoration:none; font-size:0.9rem; }
